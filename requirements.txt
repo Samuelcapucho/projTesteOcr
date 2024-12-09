@@ -12,6 +12,6 @@ PyPDF2==3.0.1
 streamlit-option-menu==0.3.13
 fpdf==1.7.2
 pytesseract==0.3.13
-opencv-python==4.10.0.84
 pdf2image==1.17.0
 Pillow==10.0.1
+opencv-python-headless==4.10.0.84
