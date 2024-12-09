@@ -250,6 +250,9 @@ if (st.session_state.arquivoObject == None) or st.session_state.arquivoObject ==
     st.warning("Atenção! Faça o Upload do arquivo.", icon="🚨")
     st.stop()
 else:
+    st.write('entrou')
+    time.sleep(2)
+    
     
     st.session_state.arquivoObjectToOcr = st.session_state.arquivoObject[0]
     st.write(st.session_state.arquivoObjectToOcr, 'content_to_ocr')
