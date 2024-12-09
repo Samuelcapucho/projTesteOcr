@@ -243,9 +243,10 @@ def startMediumPointOcr():
                 st.session_state.validTax = 'valid - OCR'
                 
                 
-                
-st.session_state.arquivoObject = st.file_uploader(f'inclua o anexo', type =['.pdf', '.jpg', '.jpge', '.png'], accept_multiple_files=True) 
-if (st.session_state.arquivoObject == None):
+st.session_state.arquivoObject = ''             
+st.session_state.arquivoObject = st.file_uploader(f'inclua o anexo', type =['.pdf', '.jpg', '.jpge', '.png'], accept_multiple_files=True)
+
+if (st.session_state.arquivoObject == None) or st.session_state.arquivoObject == '':
     st.warning("Atenção! Faça o Upload do arquivo.", icon="🚨")
     st.stop()
 else:
