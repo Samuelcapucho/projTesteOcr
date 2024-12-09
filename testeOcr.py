@@ -247,7 +247,7 @@ st.session_state.arquivoObject = ''
 st.session_state.arquivoObject = st.file_uploader(f'inclua o anexo', type =['.pdf', '.jpg', '.jpge', '.png'], accept_multiple_files=True)
 st.write(st.session_state.arquivoObject, 'content')
 
-if (st.session_state.arquivoObject == None) or st.session_state.arquivoObject == '':
+if (st.session_state.arquivoObject == None) or st.session_state.arquivoObject == '' or len(st.session_state.arquivoObject) == 0:
     st.warning("Atenção! Faça o Upload do arquivo.", icon="🚨")
     st.stop()
 else:
