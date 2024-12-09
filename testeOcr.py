@@ -254,7 +254,7 @@ else:
     time.sleep(2)
     
     
-    st.session_state.arquivoObjectToOcr = st.session_state.arquivoObject[0]
+    st.session_state.arquivoObjectToOcr = st.session_state.arquivoObject
     st.write(st.session_state.arquivoObjectToOcr, 'content_to_ocr')
     startMediumPointOcr()
     st.stop()
