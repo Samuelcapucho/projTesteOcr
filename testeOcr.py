@@ -129,7 +129,7 @@ def startMediumPointOcr():
     st.session_state.txtOcr = ''
 
     #lendo arquivo em bytes
-    pdf_bytes = st.session_state.arquivoObject.read()
+    pdf_bytes = st.session_state.arquivoObjectToOcr.read()
 
     # Converte bytes para imagens
     images = convert_from_bytes(pdf_bytes, dpi=300)
@@ -245,14 +245,14 @@ def startMediumPointOcr():
                 
 st.session_state.arquivoObject = ''             
 st.session_state.arquivoObject = st.file_uploader(f'inclua o anexo', type =['.pdf', '.jpg', '.jpge', '.png'])
-st.write(st.session_state.arquivoObject, 'content')
 
 if (st.session_state.arquivoObject == None) or st.session_state.arquivoObject == '' or len(st.session_state.arquivoObject) == 0:
     st.warning("Atenção! Faça o Upload do arquivo.", icon="🚨")
     st.stop()
 else:
-    st.session_state.arquivoObject = st.session_state.arquivoObject[0]
-    st.write(st.session_state.arquivoObject, 'content_to_ocr')
+    
+    st.session_state.arquivoObjectToOcr = st.session_state.arquivoObject[0]
+    st.write(st.session_state.arquivoObjectToOcr, 'content_to_ocr')
     startMediumPointOcr()
     st.stop()
 
