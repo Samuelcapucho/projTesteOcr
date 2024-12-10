@@ -80,6 +80,11 @@ def preprocess_image(img_bytes):
 # Função para extrair texto com Tesseract
 def extract_text_from_image(image_path): 
 
+    import subprocess
+    subprocess.run(["sudo", "apt-get", "update"], check=True)
+    subprocess.run(["sudo", "apt-get", "install", "-y", "tesseract", "poppler-utils"], check=True)
+
+
     # Configuração local para Tesseract
     pytesseract.pytesseract.tesseract_cmd = os.path.join(os.getcwd(), "assets", "tesseract.exe")
 
