@@ -54,6 +54,18 @@ from email.mime.base import MIMEBase
 from email import encoders
 import re
 
+def nfTrata(nfNumber):
+    
+    nfTratada = ''
+    for i, caract in enumerate(nfNumber):
+        if caract != '0':
+            nfTratada = nfNumber[i:]
+            nfTratada = nfTratada.lower()
+            break
+            
+    return nfTratada
+
+
 
 def convert_pdf_to_images(pdf_bytes):
     doc = fitz.open(stream=pdf_bytes, filetype="pdf")  # Abre o PDF diretamente a partir dos bytes
