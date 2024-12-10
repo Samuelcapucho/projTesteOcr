@@ -246,26 +246,12 @@ def startMediumPointOcr():
                 if len(listValue) > 0:
                     st.session_state.valueDocOcr = listValue[0]
 
-        if (st.session_state.codServOcr in st.session_state.authCods) and (st.session_state.numberNfOcr != '') and (st.session_state.dtEmissaoOcr != '') and (st.session_state.docNfOcr != '') and (st.session_state.valueDocOcr != ''):
-                
-            if (st.session_state.nNota not in st.session_state.numberNfOcr):
-                st.warning("o número de nota digitado diverge do número real", icon="🚨")
-                st.stop()
+        st.write(f'st.session_state.codServOcr: {st.session_state.codServOcr}')
+        st.write(f'st.session_state.numberNfOcr: {st.session_state.numberNfOcr}')
+        st.write(f'st.session_state.dtEmissaoOcr: {st.session_state.dtEmissaoOcr}')
+        st.write(f'st.session_state.docNfOcr: {st.session_state.docNfOcr}')
+        st.write(f'st.session_state.valueDocOcr: {st.session_state.valueDocOcr}')
 
-            if (tratData(st.session_state.dataEmiss) not in st.session_state.dtEmissaoOcr):
-                st.warning("a data de emissão digitada diverge da data real", icon="🚨")
-                st.stop()
-                
-            if (st.session_state.doc not in st.session_state.docNfOcr):
-                st.warning("o documento digitado diverge do valor real", icon="🚨")
-                st.stop()
-                
-            if (st.session_state.valor not in str(st.session_state.valueDocOcr)):
-                st.warning("o valor do documento digitado diverge do valor real", icon="🚨")
-                st.stop()
-                
-            else:
-                st.session_state.validTax = 'valid - OCR'
                 
                 
 st.session_state.arquivoObject = ''             
