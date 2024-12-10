@@ -185,7 +185,7 @@ def startMediumPointOcr():
         listDocNf = []
 
         #PMSP
-        patternDatePmsp = r'(?:emissão|paulo).*(\d{2}/\d{2}/\d{4})|(?:emissão|paulo)\s*(\d{2}/\d{2}/\d{4})|(?:emissão|paulo)\s*.\s*(\d{2}/\d{2}/\d{4})'
+        patternDatePmsp = r'(?:emissão|paulo)[^\d]*(\d{2}/\d{2}/\d{4})|(?:emissão|paulo).*(\d{2}/\d{2}/\d{4})|(?:emissão|paulo)\s*(\d{2}/\d{2}/\d{4})|(?:emissão|paulo)\s*.\s*(\d{2}/\d{2}/\d{4})'
         patternNumberNfPmsp = r'nf=\s*(\d{8})|paulo\s+(\d{8})|nota\s*(\d{8})|nf=(\d{1,8})'
         patternValuePmsp = r'total do serviço = r\$ \d{1,3}\.\d{1,3},\d{2}|total do serviço = r\$ \d{1,3},\d{2}'
         patternCodServPmsp = r'serviço\s*\d{5} - '
