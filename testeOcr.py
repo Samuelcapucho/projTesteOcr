@@ -87,10 +87,11 @@ def extract_text_from_image(image_path):
     poppler_path = os.path.join(os.getcwd(), "assets", "poppler_bin", "pdfinfo.exe")
 
     # Configuração de idioma para Tesseract
-    traineddata_path = os.path.join(os.getcwd(), "assets", "por.traineddata")
-    config = f'--oem 3 --psm 6 -l por --tessdata-dir "{os.path.dirname(traineddata_path)}"'
+    #traineddata_path = os.path.join(os.getcwd(), "assets", "por.traineddata")
+    #config = f'--oem 3 --psm 6 -l por --tessdata-dir "{os.path.dirname(traineddata_path)}"'
 
-    txt = pytesseract.image_to_string(image_path, config=config).lower()
+    #txt = pytesseract.image_to_string(image_path, config=config).lower()
+    txt = pytesseract.image_to_string(image_path, ).lower()
     return txt
   
     
