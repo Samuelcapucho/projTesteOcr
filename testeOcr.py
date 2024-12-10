@@ -3,7 +3,7 @@
 
 # In[ ]:
 
-
+import fitz
 import pytesseract
 import os
 from pdf2image import convert_from_path
@@ -53,6 +53,20 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 import re
+
+
+def convert_pdf_to_images(pdf_bytes):
+    doc = fitz.open(stream=pdf_bytes, filetype="pdf")  # Abre o PDF diretamente a partir dos bytes
+    images = []
+    for page_num in range(doc.page_count):
+        page = doc.load_page(page_num)  # Carrega a página do PDF
+        pix = page.get_pixmap(dpi=300)  # Converte a página para uma imagem (pixmap)
+        img_bytes = pix.tobytes("png")  # Converte o pixmap para bytes em formato PNG
+        img = Image.open(io.BytesIO(img_bytes))  # Cria a imagem usando PIL
+        images.append(img)
+        break
+    return images
+
 
 # Função para pré-processar imagens
 def preprocess_image(img_bytes):
@@ -133,7 +147,9 @@ def startMediumPointOcr():
     pdf_bytes = st.session_state.arquivoObjectToOcr.read()
 
     # Converte bytes para imagens
-    images = convert_from_bytes(pdf_bytes, dpi=300)
+    images = convert_pdf_to_images(pdf_bytes)
+
+
 
     for idx, img in enumerate(images):
         # Converte PIL Image para BytesIO
