@@ -95,7 +95,7 @@ def preprocess_image(img_bytes):
 def extract_text_from_image(image_path): 
 
     # Configuração local para Tesseract
-    #pytesseract.pytesseract.tesseract_cmd = os.path.join(os.getcwd(), "assets", "tesseract.exe")
+    pytesseract.pytesseract.tesseract_cmd = os.path.join(os.getcwd(), "assets", "tesseract.exe")
 
     # Configuração de idioma para Tesseract
     traineddata_path = os.path.join(os.getcwd(), "assets", "por.traineddata")
