@@ -185,7 +185,7 @@ def startMediumPointOcr():
         listDocNf = []
 
         #PMSP
-        patternDatePmsp = r'(?:emissão|paulo)\s*(\d{2}/\d{2}/\d{4})|(?:emissão|paulo)\s*.\s*(\d{2}/\d{2}/\d{4})'
+        patternDatePmsp = r'(?:emissão|paulo)\s*(\d{2}/\d{2}/\d{4})|(?:emissão|paulo)\s*.\s*(\d{2}/\d{2}/\d{4})|(\d{2}/\d{2}/\d{4}),'
         patternNumberNfPmsp = r'nf=\s*(\d{8})|paulo\s+(\d{8})|nota\s*(\d{8})|nf=(\d{1,8})'
         patternValuePmsp = r'total do serviço = r\$ \d{1,3}\.\d{1,3},\d{2}|total do serviço = r\$ \d{1,3},\d{2}'
         patternCodServPmsp = r'serviço\s*\d{5} - '
@@ -262,12 +262,8 @@ if (st.session_state.arquivoObject == None) or st.session_state.arquivoObject ==
     st.warning("Atenção! Faça o Upload do arquivo.", icon="🚨")
     st.stop()
 else:
-    st.write('entrou')
-    time.sleep(2)
-    
-    
+        
     st.session_state.arquivoObjectToOcr = st.session_state.arquivoObject
-    st.write(st.session_state.arquivoObjectToOcr, 'content_to_ocr')
     startMediumPointOcr()
     st.stop()
 
