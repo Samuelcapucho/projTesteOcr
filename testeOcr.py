@@ -84,9 +84,8 @@ def extract_text_from_image(image_path):
     pytesseract.pytesseract.tesseract_cmd = os.path.join(os.getcwd(), "assets", "tesseract.exe")
 
     # Configuração local para Poppler
-    #poppler_path = os.path.join(os.getcwd(), "assets", "poppler_bin", "pdfinfo.exe")
     os.environ["PATH"] += os.pathsep + os.path.join(os.getcwd(), "assets", "poppler_bin")
-
+    print("Poppler Path:", os.environ["PATH"])
 
     # Configuração de idioma para Tesseract
     traineddata_path = os.path.join(os.getcwd(), "assets", "por.traineddata")
