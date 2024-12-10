@@ -177,6 +177,7 @@ def startMediumPointOcr():
   
 
     if ('recebido' not in st.session_state.txtOcr) and (('prefeitura do município de são paulo' in st.session_state.txtOcr) or ('nota carioca' in st.session_state.txtOcr) or ('prefeitura do municipio de são paulo' in st.session_state.txtOcr) or ('intermediário do serviço' in st.session_state.txtOcr and 'danfse v1.0' in st.session_state.txtOcr)):
+        st.write(st.session_state.txtOcr)
         listValue = []
         listDate = []
         listNumberNf = []
